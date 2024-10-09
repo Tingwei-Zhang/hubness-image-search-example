@@ -19,8 +19,9 @@ const queryImages = async (imagePath: string) => {
       vector: queryEmbedding.values,
       includeMetadata: true,
       includeValues: true,
-      topK: 6
+      topK: 10
   });
+  console.log(queryResult['matches'][0]['metadata']);
   return queryResult.matches?.map(match => {
     const { metadata } = match;
     return {
